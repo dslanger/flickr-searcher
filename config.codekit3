@@ -9,6 +9,15 @@
 	],
 "creatorBuild": "25444",
 "files": {
+	"\/app-min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/app.js": {
 		"ft": 64,
 		"mi": 1,
