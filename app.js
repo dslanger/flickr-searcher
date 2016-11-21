@@ -39,11 +39,13 @@ angular.module('flickrSearcher', ['ngAnimate'])
       .success(function(response) {
         console.log('success');
         console.log(response);
+        vm.dataSuccess = true;
         showTheResults(response);
       })
       .error(function(response) {
         console.log('error');
         console.log(response);
+        vm.dataError = true;
       });
     };
 
