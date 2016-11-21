@@ -1,0 +1,1 @@
+"use strict";angular.module("flickrSearcher",[]).controller("mainController",["$http",function(t){var e=this;e.searchingMessage=!1,e.resultsMessage=!1,e.results=[],e.getStuffFunction=function(){t.get("").then(function(t){},function(t){console.log(t)})}}]);

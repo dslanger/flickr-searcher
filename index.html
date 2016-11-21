@@ -9,7 +9,28 @@
   </head>
   <body ng-app="flickrSearcher">
     <div class="container" ng-controller="mainController as vm">
-
+      <h1 class="app-title text-center">Flickr Searcher</h1>
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-md-offset-2"
+          <form name="flickrSearcherForm">
+            <div class="input-group">
+              <input type="text" name="searchTag" class="form-control" id="searchTag" placeholder="Enter a tag to search for" ng-model="vm.tag">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Submit</button>
+              </span>
+            </div>
+          </form>
+          <p ng-if="vm.searchingMessage">Searching Instagram for photos tagged with "{{vm.tag}}"</p>
+          <p ng-if="vm.resultsMessage">We found {{vm.results.length}} results for "{{vm.tag}}"</p>
+          <div class="row" ng-repeat="result in vm.results | filter: 'Alphabetical'">
+            <div class="col-sm-12 col-md-4">
+              <a class="thumbnail">
+                <img class="img-responseive" ng-src="{{}}">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- jquery -->
