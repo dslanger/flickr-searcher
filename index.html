@@ -24,7 +24,7 @@
           <p ng-if="vm.dataSuccess">We found {{vm.results.length}} results for "{{vm.searchTerm}}"</p>
           <p ng-if="vm.dataError">Our attempt to return results for '{{vm.searchTerm}}' caused an error. It's not your fault and we apologize. </p>
           <div class="row">
-            <div class="col-sm-12 col-md-4" ng-repeat="result in vm.results">
+            <div class="col-sm-12 col-md-4 flickr-image" ng-repeat="result in vm.results">
               <a class="thumbnail">
                 <img class="img-responsive" ng-src="{{result}}">
               </a>

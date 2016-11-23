@@ -1,6 +1,10 @@
 'use strict';
 
 angular.module('flickrSearcher', ['ngAnimate'])
+  // Did I need to use CORS? Works fine without. Only about security/best practice?
+  .config(function($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+  })
   .controller('mainController', ['$http', function($http) {
     var vm = this;
     vm.searchingMessage = false;
@@ -8,6 +12,10 @@ angular.module('flickrSearcher', ['ngAnimate'])
     vm.dataSuccess = false;
     vm.dataError = false;
     vm.results = [];
+
+    vm.trustSrc = function(src) {
+	     return $sce.trustAsResourceUrl(src);
+	  };
 
     vm.flickrSearchSubmit = function(form, response) {
       vm.results = [];
@@ -51,13 +59,14 @@ angular.module('flickrSearcher', ['ngAnimate'])
 
     var showTheResults = function(response) {
       var photoObj = response.photos.photo;
+      var size = 'q';
       //var allTheURLS = vm.results;
       for (var i = 0; i < response.photos.photo.length; i++) {
         var farm = photoObj[i].farm;
         var server = photoObj[i].server;
         var id = photoObj[i].id;
         var secret = photoObj[i].secret;
-        var photoURL = 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + '.jpg';
+        var photoURL = 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + '_' +  size + '.jpg';
         //var photoURL = farmO + 'test' + serverO + 'test';
         vm.results.push(photoURL);
       }
