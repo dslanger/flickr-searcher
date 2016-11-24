@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('flickrSearcher', ['ngAnimate'])
+angular.module('flickrSearcher', ['ngAnimate', 'ngMessages'])
   // Did I need to use CORS? Works fine without. Only about security/best practice?
   .config(function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
@@ -13,17 +13,19 @@ angular.module('flickrSearcher', ['ngAnimate'])
     vm.dataError = false;
     vm.results = [];
 
+
     vm.trustSrc = function(src) {
 	     return $sce.trustAsResourceUrl(src);
 	  };
 
-    vm.flickrSearchSubmit = function(form, response) {
+    vm.flickrSearchSubmit = function(form) {
       vm.results = [];
       vm.searchingMessage = true;
       vm.resultsMessage = false;
       vm.dataSuccess = false;
       vm.dataError = false;
       getTheData(form);
+      form.$setPristine();
       // how can I put this function here and not in getTheData()?
       // showTheResults(response);
     };
