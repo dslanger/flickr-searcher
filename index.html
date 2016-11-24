@@ -18,10 +18,11 @@
               <span class="input-group-btn">
                 <button class="btn btn-default" type="submit">Submit</button>
               </span>
+              <!-- <p ng-show="flickrSearcherForm.searchTerm.$invalid && !flickrSearcherForm.searchTerm.$pristine">Sorry, you must enter a search term in the field above.</p> -->
             </div>
-            <div ng-if="flickrSearcherForm.$submitted" ng-messages="flickrSearcherForm.searchTerm.$error">
+            <!-- <div ng-if="flickrSearcherForm.$submitted" ng-messages="flickrSearcherForm.searchTerm.$error">
                 <span ng-message="required">Sorry, you must enter a search term in the field above.</span>
-            </div>
+            </div> -->
           </form>
           <p ng-if="vm.searchingMessage">Searching Instagram for photos tagged with "{{vm.searchTerm}}"</p>
           <p ng-if="vm.dataSuccess">We found {{vm.results.length}} results for "{{vm.searchTerm}}"</p>

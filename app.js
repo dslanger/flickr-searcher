@@ -25,7 +25,7 @@ angular.module('flickrSearcher', ['ngAnimate', 'ngMessages'])
       vm.dataSuccess = false;
       vm.dataError = false;
       getTheData(form);
-      form.$setPristine();
+      //form.$setPristine();
       // how can I put this function here and not in getTheData()?
       // showTheResults(response);
     };
